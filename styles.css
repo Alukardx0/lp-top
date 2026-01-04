@@ -1,0 +1,244 @@
+/*Custom CSS Variables*/
+:root {
+  --bg-dark: #1f2933;
+  --bg-darker: #111827;
+  --bg-light: #f9fafb;
+  --accent: #3882f6;
+  --text-main: #f9fafb;
+  --text-muted: #d1d5db;
+  --text-dark: #111827;
+}
+/*Basic reset to default*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/*Global Styles*/
+body{
+    font-family: "Roboto", sans-serif; 
+    line-height: 1.5;
+    color:var(--text-dark)
+}
+
+a{
+    color: inherit; /*links inherit text color from parent*/
+    text-decoration: none;
+}
+/*layout*/
+.container{
+    max-width: 1100px;
+    margin: 0 auto; /*centers content*/
+    padding: 0 1.5rem; /*for sides*/
+}
+
+.btn{
+    display: inline-block;
+    padding: 0.6rem 1.8rem; /*spacing within button*/
+    border-radius: 999px; /*classic pill shape*/
+    border: 2px solid transparent;
+    background-color: var(--accent); /*custom css defined in :root */
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.btn-outline{
+    background-color: transparent;
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+.site-header{
+    background-color: var(--bg-dark) ;
+    color: var(--text-main);
+    padding: 1.2rem 0; /*top/bot & left/right*/
+}
+
+.header-inner{ /*flexbox layout for logo&nav aka direct child element of this <div>*/
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem; /*min fixed space between items. Used with jutisfy-content. */
+
+}
+
+.logo{
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.main-nav ul{
+    list-style: none;
+    display:flex; /*arranges list items in a row (flexbox)*/
+    gap:1.5rem;
+    font-size:0.95rem;
+}
+
+.main-nav a{
+    color: var(--text-muted)
+}
+
+/*hover color change*/
+.main-nav a:hover,
+.main-nav a:focus{
+    color: #ffffff;
+}
+
+/*Hero Section*/
+
+.hero{
+    background-color: var(--bg-dark); 
+    color: var(--text-main);
+    padding: 4rem 0 5rem; /*4rem top, 0 left/right, 5rem bot*/
+}
+
+.hero-inner{
+    display:flex;
+    flex-wrap:wrap; /*wraps on smaller screens*/
+    gap:3rem;
+    align-items: center;
+}
+
+.hero-text{
+    flex: 1 1 260px; /*allows text block to grow/shrink, initial size 260px*/
+}
+
+/*h1 text Responsive*/
+.hero-text h1{
+    font-size: clamp(2rem, 3vm+1rem, 2.8rem); /*2rem min size, 3%viewport width+1rem, 2.8rem max size*/
+    font-weight: 800;
+    margin-bottom: .75rem;
+}
+
+.hero-text p{
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    max-width: 32rem;
+}
+
+.hero-media {
+    flex: 1 1 260px;
+    min-height: 200px;
+    background-color: #6b7280;
+    color: #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 4px;
+}
+
+/*section 2 INFO*/
+
+.info-section{
+    background-color: #ffffff;
+    padding:3.5rem 0 4rem;
+    text-align: center; /*text within element align center horizontally*/
+}
+
+.info-section h2{
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+}
+
+.info-grid{
+    display: grid; /*elements direct children become grid items*/
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /*autofit on smaller screen*/
+    gap: 1.8rem;
+    margin-top: 1rem;
+}
+
+.info-card{ /*card container: centers content vertically&horizontally*/
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: .9rem;
+    color: #4b5563;
+}
+
+.info-card-box{
+    width: 120px;
+    height: 120px;
+    border-radius: 12px;
+    border: 3px solid #60a5fa; /*blue outlines the image box*/
+    background-color: #ffffff;
+}
+
+/*Section 3 quotes*/
+
+.quote-section{
+    background-color: #E5E7EB;
+    padding: 4em 0;
+}
+
+.quote-inner{
+    max-width: 800px;/*max width of text container*/
+    margin: 0 auto;/*centers container horizontally within parent*/
+    font-style: italic;
+    color: #374151;
+}
+
+.quote-inner p {
+    font-size: 1.3rem; /*can be set on parent but devs often target the child p, 1. override browser defaults */
+    margin-bottom: 1.5rem; /*margin-bottom is not inherited by child so we set on p*/
+
+}
+
+.quote-author {
+    font-style: normal;
+    font-weight: 700;
+    text-align: right;
+}
+
+/*section 4 cta*/
+
+.cta-section{
+    background-color: #ffffff;
+    padding: 4rem 0;
+}
+
+.cta-box {
+  background-color: var(--accent);
+  color: #ffffff;
+  border-radius: 8px;
+  padding: 1.8rem 2.4rem; /*space inside box*/
+  display: flex;
+  flex-wrap: wrap; /*allows child to wrap onto next line if container too narrow*/
+  align-items: center; /*vertically centers child*/
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.cta-text h3{
+    font-size: 1.2rem;
+    margin-bottom: 0.25rem;
+}
+
+.cta-text p {
+  font-size: 0.9rem;
+  color: #e5e7eb;
+}
+
+.site-footer{
+    background-color: var(--bg-darker);
+    color: var(--text-muted);
+    text-align: center;
+    padding: 1.5rem 0;
+    font-size: 0.85rem;
+}
+
+/*make site more responsive and userfriendly on smaller screen*/
+@media (max-width: 640px) { /*media query. tells browser to only apply when viewport/screen width is max 640px*/
+  .main-nav ul {
+    gap: 0.75rem;
+    font-size: 0.85rem;
+  }
+
+  .cta-box {
+    text-align: left;
+  }
+}
